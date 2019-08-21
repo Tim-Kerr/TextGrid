@@ -1,10 +1,10 @@
 import * as React from 'react';
 
-interface TextBoxProps {
+interface TextElementProps {
     text: string;
 }
 
-const TextBox: React.SFC<TextBoxProps> = (props) => {
+const TextElement: React.SFC<TextElementProps> = (props) => {
     return (
         <div className="textElement">
             <p>{props.text}</p>
@@ -12,4 +12,4 @@ const TextBox: React.SFC<TextBoxProps> = (props) => {
     )
 }
 
-export default TextBox
+export default TextElement;

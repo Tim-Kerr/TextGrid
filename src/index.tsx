@@ -6,6 +6,10 @@ import * as serviceWorker from './serviceWorker';
 import { createStore } from 'redux';
 import textReducer from './reducers/TextReducer';
 import { Provider } from 'react-redux';
+// @ts-ignore
+const msmq = window.require('node-msmq');
+
+console.log('msmq: ', msmq);
 
 // Create Redux store
 const store = createStore(
@@ -14,9 +18,12 @@ const store = createStore(
     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
 
+// var msgQueue = openOrCreateQueue('.\\Private$\\TextMessageQueue');
+// msgQueue.startReceiving();
+
 ReactDOM.render(
     <Provider store={store}>
-        <App />
+        <App msgQueue={{}} />
     </Provider>,
     document.getElementById('root')
 );
