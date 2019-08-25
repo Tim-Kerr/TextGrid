@@ -17,13 +17,13 @@ const App: React.FC<IAppProps> = (props: IAppProps) => {
   const renderText = () => (props.text) ? props.text.map((text, i) => <TextElement key={i} text={text} />) : [];
 
   const pushText = () => {
-    // props.msgQueue.send(text); // Send the text onto the Microsoft MSMQ
+    props.msgQueue.send(text); // Send the text onto the Microsoft MSMQ
     props.dispatch(addText(text));
     setText('');
   }
 
   // Push new text element when a new message from the queue is received
-  // props.msgQueue.on('receive', (msg: any) => typeof msg.body === 'string' && props.dispatch(addText(msg.body)));
+  props.msgQueue.on('receive', (msg: any) => typeof msg.body === 'string' && props.dispatch(addText(msg.body)));
 
   return (
     <div className="App">

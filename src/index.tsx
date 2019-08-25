@@ -18,8 +18,8 @@ const store = createStore(
     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
 
-// var msgQueue = openOrCreateQueue('.\\Private$\\TextMessageQueue');
-// msgQueue.startReceiving();
+var msgQueue = msmq.openOrCreateQueue('.\\Private$\\TextMessageQueue');
+msgQueue.startReceiving();
 
 ReactDOM.render(
     <Provider store={store}>
