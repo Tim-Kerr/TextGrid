@@ -18,7 +18,7 @@ const App: React.FC<IAppProps> = (props: IAppProps) => {
 
   const pushText = () => {
     props.msgQueue.send(text); // Send the text onto the Microsoft MSMQ
-    props.dispatch(addText(text));
+    // props.dispatch(addText(text));
     setText('');
   }
 

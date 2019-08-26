@@ -7,6 +7,8 @@ import { createStore } from 'redux';
 import textReducer from './reducers/TextReducer';
 import { Provider } from 'react-redux';
 // @ts-ignore
+window.require('require-rebuild')();
+// @ts-ignore
 const msmq = window.require('node-msmq');
 
 console.log('msmq: ', msmq);
